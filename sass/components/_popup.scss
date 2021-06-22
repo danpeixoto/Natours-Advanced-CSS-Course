@@ -13,6 +13,10 @@
 	transition-property: opacity, visibility;
 	backdrop-filter: blur(10px);
 
+	@include respond(tab-land) {
+		padding: 0;
+	}
+
 	&:target {
 		visibility: visible;
 		opacity: 1;
@@ -34,12 +38,20 @@
 			left: 50%;
 			transform: translateX(-50%);
 		}
+
+		@include respond(tab-land) {
+			padding: 0 2rem;
+		}
 	}
 
 	&:target &__content {
 		visibility: visible;
 		opacity: 1;
 		transform: translate(-50%, -50%) scale(1);
+
+		@include respond(tab-land) {
+			transform: scale(1);
+		}
 	}
 
 	&__content {
@@ -56,6 +68,17 @@
 		transition: 400ms;
 		transition-delay: 200ms;
 		transition-property: opacity, transform;
+
+		@include respond(tab-land) {
+			position: relative;
+			top: 0;
+			left: 0;
+			width: 100%;
+			max-width: none;
+			height: 100vh;
+			transform: scale(0);
+		}
+
 	}
 
 	&__close {
@@ -71,6 +94,10 @@
 			color: $color-gray-dark;
 			transition: color 200ms;
 			line-height: 1;
+
+			@include respond(tab-land) {
+				font-size: 5rem;
+			}
 		}
 
 		&:hover {
@@ -81,6 +108,11 @@
 	&__img {
 		display: block;
 		width: 100%;
+
+		@include respond(tab-land) {
+			object-fit: cover;
+			height: 50vh;
+		}
 	}
 
 	&__text {
